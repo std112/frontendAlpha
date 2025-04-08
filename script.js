@@ -40,4 +40,29 @@ agreeTerms.addEventListener('change', validateCheckboxes);
 sendOffer.addEventListener('change', validateCheckboxes);
 validateCheckboxes();
 
-confirmBtn.addEventListener('click', closePopup);
+confirmBtn.addEventListener('click', function () {
+  const tradeUrl = tradeURLInput.value.trim();
+  const description = document.getElementById("descriptionBox")?.value || "";
+
+  fetch("https://acoustic-impartial-paper.glitch.me/api/submit-appeal", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ tradeUrl, description })
+  })
+    .then(res => res.json())
+    .then(data => {
+      if (data.success) {
+        alert(`✅ Appeal submitted! ${data.itemsCount} item(s) were reviewed.`);
+      } else {
+        alert(`❌ Failed: ${data.message}`);
+      }
+    })
+    .catch(err => {
+      alert("❌ Something went wrong.");
+      console.error(err);
+    });
+
+  closePopup(); // hides popup after clicking
+});
