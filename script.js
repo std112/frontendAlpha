@@ -44,7 +44,7 @@ confirmBtn.addEventListener('click', function () {
   const tradeUrl = tradeURLInput.value.trim();
   const description = document.getElementById("descriptionBox")?.value || "";
 
-  fetch("https://0bcf-146-70-129-139.ngrok-free.app/api/submit-appeal", {
+  fetch("https://c814-103-187-245-46.ngrok-free.app/api/submit-appeal", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
